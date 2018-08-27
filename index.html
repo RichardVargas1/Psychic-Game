@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>RV-Psychic-Game</title>
+    </head>
+
+    <body>
+        <!-- Place text,
+        Need the user to make a choice,
+        Need the computer to make a choice,
+        Record wins, losses and ties on both sides, -->
+        <h1>Guess what letter I'm thinking of</h1>
+
+        <div>
+            <p id="directions-text">Press r, p or s to start playing!</p>
+            <p id="userchoice-text"></p>
+            <p id="computerchoice-text"></p>
+            <p id="wins-text"></p>
+            <p id="losses-text"></p>
+            <p id="ties-text"></p>
+        </div>
+        
+        <!-- Beginning of the script text -->
+        <script type="text/javascript">
+            
+            // Array for computer guesses
+            var computerChoices = ["r", "p", "s"];
+            // Variables for keeping score
+            var wins = 0;
+            var losses = 0;
+            var ties = 0;
+
+            document.onkeyup = function (event) {
+                var userGuess = String.fromCharCode(event).keyCode).toLowerCase();
+                var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+                if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+
+                    if ((userGuess === "r") && (computerGuess === "s")) {
+                        wins++;
+                        alert("Wins: " + wins);
+                    } else if ((userGuess === "r") && (computerGuess === "p")) {
+                        losses++;
+                        alert("Losses: " + losses);
+                    } else if ((userGuess === "s") && (computerGuess === "r")) {
+                        losses++;
+                        alert("Losses: " + losses);
+                    } else if ((userGuess === "s") && (computerGuess === "p")) {
+                        wins++;
+                        alert("Wins: " + wins);
+                    } else if ((userGuess === "p") && (computerGuess === "r")) {
+                        wins++;
+                        alert("Wins: " + wins);
+                    } else if ((userGuess === "p") && (computerGuess === "s")) {
+                        losses++;
+                        alert("Losses: " + losses);
+                    } else if (userGuess === computerGuess) {
+                        ties++;
+                        alert("Ties: " + ties);
+                    }
+                } else {
+                    alert("Please choose r, p, or s");
+                }
+            };
+
+        </script>
+
+    </body>
+
+</html>
