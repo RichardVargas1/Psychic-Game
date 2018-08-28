@@ -1,2 +1,2 @@
-# Word-Guess-Game
+# Psychic-Game
 My First JavaScript Game.
