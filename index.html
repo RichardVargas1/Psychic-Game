@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>RV-Psychic-Game</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
 
     <body>
@@ -22,51 +23,8 @@
             <p id="ties-text"></p>
         </div>
         
-        <!-- Beginning of the script text -->
-        <script type="text/javascript">
-            
-            // Array for computer guesses
-            var computerChoices = ["r", "p", "s"];
-            // Variables for keeping score
-            var wins = 0;
-            var losses = 0;
-            var ties = 0;
-
-            document.onkeyup = function (event) {
-                var userGuess = String.fromCharCode(event).keyCode).toLowerCase();
-                var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-                if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
-
-                    if ((userGuess === "r") && (computerGuess === "s")) {
-                        wins++;
-                        alert("Wins: " + wins);
-                    } else if ((userGuess === "r") && (computerGuess === "p")) {
-                        losses++;
-                        alert("Losses: " + losses);
-                    } else if ((userGuess === "s") && (computerGuess === "r")) {
-                        losses++;
-                        alert("Losses: " + losses);
-                    } else if ((userGuess === "s") && (computerGuess === "p")) {
-                        wins++;
-                        alert("Wins: " + wins);
-                    } else if ((userGuess === "p") && (computerGuess === "r")) {
-                        wins++;
-                        alert("Wins: " + wins);
-                    } else if ((userGuess === "p") && (computerGuess === "s")) {
-                        losses++;
-                        alert("Losses: " + losses);
-                    } else if (userGuess === computerGuess) {
-                        ties++;
-                        alert("Ties: " + ties);
-                    }
-                } else {
-                    alert("Please choose r, p, or s");
-                }
-            };
-
-        </script>
-
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+        
     </body>
 
 </html>
