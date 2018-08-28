@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>RV-Psychic-Game</title>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
 
@@ -14,13 +15,15 @@
         Record wins, losses and ties on both sides, -->
         <h1>Guess what letter I'm thinking of</h1>
 
-        <div>
+        <div id="main-container" class="container">
+            
             <p id="directions-text">Press r, p or s to start playing!</p>
             <p id="userchoice-text"></p>
             <p id="computerchoice-text"></p>
             <p id="wins-text"></p>
             <p id="losses-text"></p>
             <p id="ties-text"></p>
+            
         </div>
         
         <script type="text/javascript" src="assets/javascript/game.js"></script>
