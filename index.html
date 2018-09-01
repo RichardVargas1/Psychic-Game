@@ -9,23 +9,33 @@
     </head>
 
     <body>
-        <!-- Place text,
+        <!-- Place direction text,
         Need the user to make a choice,
-        Need the computer to make a choice,
-        Record wins, losses and ties on both sides, -->
-        <h1>Guess what letter I'm thinking of</h1>
+        Record wins, losses and ties on both sides (between user and computer) -->
+        <h1>Guess what letter I'm thinking of:</h1>
 
         <div id="main-container" class="container">
-            
-            <p id="directions-text">Press r, p or s to start playing!</p>
-            <p id="userchoice-text"></p>
-            <p id="computerchoice-text"></p>
-            <p id="wins-text"></p>
-            <p id="losses-text"></p>
-            <p id="ties-text"></p>
+
+            <!-- Rules of the Game-->
+            <h4>Press any letter to start guessing!</h4>
+            <h4>* All letters have to be guessed in lowercase (NO CAPS/SHIFT) *</h4>
+
+            <h4>Wins:
+                <p id="wins"></p>
+            </h4>
+            <h4>Loses:
+                <p id="loses"></p>
+            </h4>
+            <h4># of Guesses Left:
+                <p id="numberOfGuessesLeft"></p>
+            </h4>
+            <h4>Letters Guessed:
+                <p id="lettersAlreadyGuessed"></p>
+            </h4>
             
         </div>
         
+        <!-- JavaScript Reference -->
         <script type="text/javascript" src="assets/javascript/game.js"></script>
 
         <!-- Footer -->

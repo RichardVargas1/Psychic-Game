@@ -17,6 +17,10 @@ h1 {
     padding: 120px;
     font-size: 20px;
     font-weight: bold;
+    width: 100%;
+    max-width: 960px;
+    padding: 90px;
+    background: #ddd;
 }
 
 /* My Footer */

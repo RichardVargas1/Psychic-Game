@@ -1,60 +1,85 @@
-    // Array containing the choices the computer has to make, based off of user responses.
-    var computerChoices = ["r", "p", "s"];
 
-    // Variables that record the score for the game. Before game starts, counters start at the number 0.
-    var wins = 0;
-    var losses = 0;
-    var ties = 0;
+// Variable, that houses an array, containing the alphabet.
+var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 
+'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+// Variables that record the wins, losses, # of guesses left, and which letter the user chose.
+var wins = 0;
+var loses = 0;
+var guessesLeft
+var guessedLetters 
+// Established computer choise, what the user will have to guess.
+var computerChoice
 
-    // These variables will display references from the user/computer choices. It also contains the references for
-    // Wins, losses, and ties.
-    var userChoiceText = document.getElementById("userchoice-text");
-    var computerChoiceText = document.getElementById("computerchoice-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var tiesText = document.getElementById("ties-text");
+// onkeyup will record any pressed key the user makes.
+document.onkeyup = function(event) {
+  var userGuess = event.key;
+  if (userGuess === computerChoice) {
+    win();
+    //  Subtracts each guess if the user does not make correct guess.
+  } else if (guessesLeft - 1 === 0) {
+    lost();
+  } else {
+    fail(userGuess);
+  }
 
-    // Onkeyup is run whenever the user presses down onto key. It will record any result.
-    document.onkeyup = function(event) {
+  display();
+}
 
-    // Helps the computer process whatever key the user touched. It will then respond with a guess of it's own:
-    var userGuess = event.key;
+resetGame();
+display();
 
-    // After the user makers their guess, the computer will then make it's own guess.
-    //The computer will only make choices from the array created on the code line #2.
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+// Functions that will add onto the wins and losses counter. Will also reset game if numbers run out.
+function win() {
+  wins++;
+  resetGame();
+}
 
-    // This is the overall background of the game. This will help the computer process the results of each game.
-    // Also, after each win/loss/or tie, the game wil reset without having to hit the refresh button. The game can go on for as long as the user wants.
-    if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+function lost() {
+  loses++;
+  resetGame();
+}
 
-        if ((userGuess === "r") && (computerGuess === "s")) {
-        wins++;
-        } else if ((userGuess === "r") && (computerGuess === "p")) {
-        losses++;
-        } else if ((userGuess === "s") && (computerGuess === "r")) {
-        losses++;
-        } else if ((userGuess === "s") && (computerGuess === "p")) {
-        wins++;
-        } else if ((userGuess === "p") && (computerGuess === "r")) {
-        wins++;
-        } else if ((userGuess === "p") && (computerGuess === "s")) {
-        losses++;
-        } else if (userGuess === computerGuess) {
-        ties++;
-        }
+function fail(letter) {
+  guessesLeft--;
+  guessedLetters.push(letter);
+}
 
+function resetGame() {
+  guessesLeft = 15;
+  guessedLetters = [];
+  computerChoice = letters[Math.floor(Math.random() * letters.length)];
+}
 
-        // Illustrates user/computer guesses. Including the wins, losses, and ties for bth parties.
-        userChoiceText.textContent = "You chose: " + userGuess;
-        computerChoiceText.textContent = "The computer chose: " + computerGuess;
-        winsText.textContent = "wins: " + wins;
-        lossesText.textContent = "losses: " + losses;
-        tiesText.textContent = "ties: " + ties;
-        // Alert notifying the user to press certain keys to play the game.
-        // (This helps notify the user to turn off caps, or to not hold down the shift key).
-        // This alert pops up at anytime the user has caps lock, or the shift key, on.
-    } else {
-        alert("Please choose r, p, or s");
-    }
-};
+function display() {
+  // Acquiring the ids from the html (document) element. Linking this helps establish the games relationship.
+  var winsP = document.getElementById("wins");
+  var losesP = document.getElementById("loses");
+  var numberOfGuessesLeft = document.getElementById("numberOfGuessesLeft");
+  var letterGuessed = document.getElementById("lettersAlreadyGuessed");
+  winsP.innerHTML = wins;
+  losesP.innerHTML = loses;
+  numberOfGuessesLeft.innerHTML = guessesLeft;
+  letterGuessed.innerHTML = guessedLetters.join(',');
+}
+
+function win() {
+  wins++;
+  resetGame();
+}
+
+function lost() {
+  loses++;
+  resetGame();
+}
+
+function fail(letter) {
+  guessesLeft--;
+  guessedLetters.push(letter);
+}
+
+function resetGame() {
+  // Number of guess left for the user.
+  guessesLeft = 15;
+  guessedLetters = [];
+  computerChoice = letters[Math.floor(Math.random() * letters.length)];
+}
