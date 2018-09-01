@@ -1,50 +1,49 @@
 
 // Variable, that houses an array, containing the alphabet.
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 
-'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+  'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 // Variables that record the wins, losses, # of guesses left, and which letter the user chose.
 var wins = 0;
 var loses = 0;
+// wins and loses have to start at zero, if beginning a new game.
 var guessesLeft
-var guessedLetters 
+var guessedLetters
 // Established computer choise, what the user will have to guess.
 var computerChoice
 
 // onkeyup will record any pressed key the user makes.
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
   var userGuess = event.key;
   if (userGuess === computerChoice) {
-    win();
+    userwin();
     //  Subtracts each guess if the user does not make correct guess.
   } else if (guessesLeft - 1 === 0) {
-    lost();
+    userlost();
   } else {
-    fail(userGuess);
+    userfail(userGuess);
   }
 
   display();
 }
 
-resetGame();
-display();
-
 // Functions that will add onto the wins and losses counter. Will also reset game if numbers run out.
-function win() {
+function userwin() {
   wins++;
   resetGame();
 }
 
-function lost() {
+function userlost() {
   loses++;
   resetGame();
 }
 
-function fail(letter) {
+function userfail(letter) {
   guessesLeft--;
   guessedLetters.push(letter);
 }
 
 function resetGame() {
+  // Number of total guesses left for the user.
   guessesLeft = 15;
   guessedLetters = [];
   computerChoice = letters[Math.floor(Math.random() * letters.length)];
@@ -56,30 +55,15 @@ function display() {
   var losesP = document.getElementById("loses");
   var numberOfGuessesLeft = document.getElementById("numberOfGuessesLeft");
   var letterGuessed = document.getElementById("lettersAlreadyGuessed");
+  // Shows the number of wins/loses on the html page in the p tags.
   winsP.innerHTML = wins;
   losesP.innerHTML = loses;
+  // Displays the number of guesses left onto the html.
   numberOfGuessesLeft.innerHTML = guessesLeft;
+  // Pulls from the alphabet array established.
   letterGuessed.innerHTML = guessedLetters.join(',');
 }
 
-function win() {
-  wins++;
-  resetGame();
-}
-
-function lost() {
-  loses++;
-  resetGame();
-}
-
-function fail(letter) {
-  guessesLeft--;
-  guessedLetters.push(letter);
-}
-
-function resetGame() {
-  // Number of guess left for the user.
-  guessesLeft = 15;
-  guessedLetters = [];
-  computerChoice = letters[Math.floor(Math.random() * letters.length)];
-}
+// Inputed into java file to make game rest and show results after every game, without having to refresh the webpage.
+resetGame();
+display();

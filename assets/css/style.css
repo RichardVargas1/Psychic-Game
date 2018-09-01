@@ -23,6 +23,10 @@ h1 {
     background: #ddd;
 }
 
+#instructions {
+    color: red
+}
+
 /* My Footer */
 
 footer {

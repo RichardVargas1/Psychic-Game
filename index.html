@@ -1,54 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>RV-Psychic-Game</title>
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>RV-Psychic-Game</title>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
 
-    <body>
-        <!-- Place direction text,
+<body>
+    <!-- Place direction text,
         Need the user to make a choice,
         Record wins, losses and ties on both sides (between user and computer) -->
-        <h1>Guess what letter I'm thinking of:</h1>
+    <h1>Guess what letter I'm thinking of:</h1>
 
-        <div id="main-container" class="container">
+    <div id="main-container" class="container">
 
-            <!-- Rules of the Game-->
+        <!-- Rules of the Game-->
+
+        <div id="instructions" class=instruct>
             <h4>Press any letter to start guessing!</h4>
             <h4>* All letters have to be guessed in lowercase (NO CAPS/SHIFT) *</h4>
-
-            <h4>Wins:
-                <p id="wins"></p>
-            </h4>
-            <h4>Loses:
-                <p id="loses"></p>
-            </h4>
-            <h4># of Guesses Left:
-                <p id="numberOfGuessesLeft"></p>
-            </h4>
-            <h4>Letters Guessed:
-                <p id="lettersAlreadyGuessed"></p>
-            </h4>
-            
         </div>
-        
-        <!-- JavaScript Reference -->
-        <script type="text/javascript" src="assets/javascript/game.js"></script>
 
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-auto">
+        <!-- Record of Game-->
+        <h4>Wins:
+            <p id="wins">#</p>
+        </h4>
+        <h4>Loses:
+            <p id="loses">#</p>
+        </h4>
+        <h4># of Guesses Left:
+            <p id="numberOfGuessesLeft">#</p>
+        </h4>
+        <h4>Letters Guessed:
+            <p id="lettersAlreadyGuessed">#</p>
+        </h4>
+
+    </div>
+
+    <!-- JavaScript Reference -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
                     Copyright © R. Vargas
-                    </div>
                 </div>
             </div>
-        </footer>
-        
-    </body>
+        </div>
+    </footer>
+
+</body>
 
 </html>
